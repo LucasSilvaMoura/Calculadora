@@ -1,13 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CalculadoraPadrao.operadores_e_expressões
+namespace Operadores
 {
-    internal class Potencia
+    public class Potencia
     {
+        private int _base;
+        private int _expoente;
 
+        public Potencia(int baseNumber, int expoente)
+        {
+            _base = baseNumber;
+            _expoente = expoente;
+        }
+
+        public int Elevar()
+        {
+            return (int)Math.Pow(_base, _expoente);
+        }
     }
 }
