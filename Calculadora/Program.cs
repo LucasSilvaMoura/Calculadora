@@ -9,6 +9,8 @@ namespace CalculadoraPadrao
         private static double a;
         private static double b;
         private static double c;
+        private static readonly int valor1;
+        private static readonly int valor2;
 
         static void Main(string[] args)
         {
@@ -31,42 +33,46 @@ namespace CalculadoraPadrao
                     break;
                 }
 
-                Console.WriteLine("Digite o primeiro número:");
-                if (!int.TryParse(Console.ReadLine(), out int valor1))
-                {
+                if(operacao == 1 || operacao == 2 || operacao == 3 || operacao == 4 || operacao == 5 || operacao == 6 || operacao == 7)
+                { 
+                    Console.WriteLine("Digite o primeiro número:");
+                     if (!int.TryParse(Console.ReadLine(), out _))
+                     {
                     Console.WriteLine("Valor inválido! Por favor, digite um número inteiro.");
-                    continue;
-                }
+                      continue;
+                     }
 
-                Console.WriteLine("Digite o segundo número:");
-                if (!int.TryParse(Console.ReadLine(), out int valor2))
-                {
+                    Console.WriteLine("Digite o segundo número:");
+                      if (!int.TryParse(Console.ReadLine(), out _))
+                      {
                     Console.WriteLine("Valor inválido! Por favor, digite um número inteiro.");
-                    continue;
+                      continue;
+                      }
+
                 }
 
                 if (operacao == 8)
                 {
                     Console.WriteLine("Digite o valor de a:");
-                    if (!double.TryParse(Console.ReadLine(), out double a))
-                    {
+                     if (!double.TryParse(Console.ReadLine(), out double a))
+                     {
                         Console.WriteLine("Valor inválido! Por favor, digite um número real.");
                         continue;
-                    }
+                     }
 
                     Console.WriteLine("Digite o valor de b:");
-                    if (!double.TryParse(Console.ReadLine(), out double b))
-                    {
+                     if (!double.TryParse(Console.ReadLine(), out double b))
+                     {
                         Console.WriteLine("Valor inválido! Por favor, digite um número real.");
                         continue;
-                    }
+                     }
 
                     Console.WriteLine("Digite o valor de c:");
-                    if (!double.TryParse(Console.ReadLine(), out double c))
-                    {
+                     if (!double.TryParse(Console.ReadLine(), out double c))
+                     {
                         Console.WriteLine("Valor inválido! Por favor, digite um número real.");
                         continue;
-                    }
+                     }
                 }
 
                 var resultado = 0.0;
