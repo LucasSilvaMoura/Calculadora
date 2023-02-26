@@ -6,6 +6,10 @@ namespace CalculadoraPadrao
 {
     internal class Program
     {
+        private static double a;
+        private static double b;
+        private static double c;
+
         static void Main(string[] args)
         {
             var operacaoValida = true;
@@ -13,10 +17,10 @@ namespace CalculadoraPadrao
             while (operacaoValida)
             {
                 Console.WriteLine("Escolha a operação desejada:");
-                Console.WriteLine("1 - Soma, 2 - Subtração, 3 - Multiplicação, 4 - Divisão, 5 - Potência, 6 - Raiz Quadrada, 7 - Porcentagem, 0 - Sair");
+                Console.WriteLine("1 - Soma, 2 - Subtração, 3 - Multiplicação, 4 - Divisão, 5 - Potência, 6 - Raiz Quadrada, 7 - Porcentagem, 8 - Bhaskara, 0 - Sair");
                 Console.WriteLine("Digite o número correspondente à operação:");
 
-                if (!int.TryParse(Console.ReadLine(), out int operacao) || operacao < 0 || operacao > 6)
+                if (!int.TryParse(Console.ReadLine(), out int operacao) || operacao < 0 || operacao > 8)
                 {
                     Console.WriteLine("Opção inválida! Por favor, digite uma opção válida.");
                     continue;
@@ -39,6 +43,30 @@ namespace CalculadoraPadrao
                 {
                     Console.WriteLine("Valor inválido! Por favor, digite um número inteiro.");
                     continue;
+                }
+
+                if (operacao == 8)
+                {
+                    Console.WriteLine("Digite o valor de a:");
+                    if (!double.TryParse(Console.ReadLine(), out double a))
+                    {
+                        Console.WriteLine("Valor inválido! Por favor, digite um número real.");
+                        continue;
+                    }
+
+                    Console.WriteLine("Digite o valor de b:");
+                    if (!double.TryParse(Console.ReadLine(), out double b))
+                    {
+                        Console.WriteLine("Valor inválido! Por favor, digite um número real.");
+                        continue;
+                    }
+
+                    Console.WriteLine("Digite o valor de c:");
+                    if (!double.TryParse(Console.ReadLine(), out double c))
+                    {
+                        Console.WriteLine("Valor inválido! Por favor, digite um número real.");
+                        continue;
+                    }
                 }
 
                 var resultado = 0.0;
@@ -73,6 +101,12 @@ namespace CalculadoraPadrao
                         var porcentagem = new Porcentagem(valor1, valor2);
                         resultado = porcentagem.Calcular();
                         break;
+
+                    case 8:
+                        var bhaskara = new Bhaskara(a, b, c);
+                        resultado = bhaskara.GetHashCode();
+                        break;
+
                 }
 
                 Console.WriteLine("O Resultado é: " + resultado);
